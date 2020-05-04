@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private int _speed = 8;
+    private float _speed = 8f;
 
     void Start()
     {
@@ -15,5 +15,10 @@ public class Laser : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
+
+        if(transform.position.y > 8f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
