@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
 
+    Vector3 offset = new Vector3(0, 0.8f, 0);
+
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+            Instantiate(_laserPrefab, transform.position + offset, Quaternion.identity);
         }
     }
 
