@@ -28,11 +28,12 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
         else if(other.gameObject.tag == "Laser")
         {
             Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
