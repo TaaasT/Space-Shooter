@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
     private float _speed = 4f;
 
     void Start()
@@ -16,9 +17,10 @@ public class Enemy : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if(transform.position.y < -5.35f)
+        float randomX = Random.Range(-11.62f, 11.65f);
+        if (transform.position.y < -5.35f)
         {
-            transform.position = new Vector3(Random.Range(-11.62f, 11.65f), 6.92f, 0);
+            transform.position = new Vector3(randomX, 6.92f, 0);
         }
     }
 }
