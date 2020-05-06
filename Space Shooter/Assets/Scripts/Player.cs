@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1f;
-    Vector3 offset = new Vector3(0, 0.8f, 0);
+    Vector3 offset = new Vector3(0, 1.05f, 0);
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
