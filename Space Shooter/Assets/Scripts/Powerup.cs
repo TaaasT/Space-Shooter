@@ -8,6 +8,8 @@ public class Powerup : MonoBehaviour
     [SerializeField]
     private float _speed = 3f;
 
+
+
     void Start()
     {
         
@@ -28,6 +30,12 @@ public class Powerup : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            Player player = other.transform.GetComponent<Player>();
+            if(player != null)
+            {
+                player.TrippleShotActive();
+            }
+
             Destroy(this.gameObject);
         }
     }
