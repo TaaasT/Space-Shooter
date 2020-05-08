@@ -11,6 +11,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _PowerupPrefab;
 
+    private bool _firstSpawn;
     private bool _stopSpawning = false;
 
 
@@ -43,11 +44,16 @@ public class SpawnManager : MonoBehaviour
     {
        while(_stopSpawning == false)
         {
+            if(!_firstSpawn)
+            {
+                yield return new WaitForSeconds(10f);
+                _firstSpawn = true;
+            }
             var PowerupSpawn = new Vector3(Random.Range(-8f, 8f), 7f, 0f);
             Instantiate(_PowerupPrefab, PowerupSpawn, Quaternion.identity);
-            
+
             yield return new WaitForSeconds(Random.Range(3, 8));
-            
+
         }
     }
 
