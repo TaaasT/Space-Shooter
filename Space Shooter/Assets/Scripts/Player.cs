@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
-    private GameObject _trippleShotPrefab;
+    private GameObject _tripleShotPrefab;
     [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1f;
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
             if (_isTripleShotActive == true)
             {
-                Instantiate(_trippleShotPrefab, transform.position, Quaternion.identity);
+                Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
             }
             else
             {
