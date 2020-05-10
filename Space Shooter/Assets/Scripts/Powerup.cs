@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Powerup : MonoBehaviour
@@ -28,17 +29,17 @@ public class Powerup : MonoBehaviour
             Player player = other.transform.GetComponent<Player>();
             if(player != null)
             {
-                if (powerupID == 0)
+                switch(powerupID)
                 {
-                    player.TrippleShotActive();
-                }
-                else if(powerupID == 1)
-                {
-                    Debug.Log("Speed");
-                }
-                else if(powerupID == 2)
-                {
-                    Debug.Log("Shield");
+                    case 0:
+                player.TrippleShotActive();
+                    break;
+                case 1:
+                Debug.Log("speedboost");
+                    break;
+                case 2:
+                Debug.Log("Shield");
+                    break;
                 }
             }
 
