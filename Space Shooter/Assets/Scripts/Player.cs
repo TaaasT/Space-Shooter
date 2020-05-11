@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     
     private bool _isTripleShotActive = false;
+    [SerializeField]
     private bool _isSpeedBoostActive = false;
     void Start()
     {
@@ -47,15 +48,8 @@ public class Player : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
 
-        if(_isSpeedBoostActive == false)
-        {
-            transform.Translate(direction * _speed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Translate(direction * (_speed * _speedMultiplier) * Time.deltaTime);
-        }
-
+        transform.Translate(direction * _speed * Time.deltaTime);
+       
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 3.8f), 0);
 
         if (transform.position.x > 11.3f)
@@ -113,7 +107,7 @@ public class Player : MonoBehaviour
     public void SpeedBoostActive()
     {
         _isSpeedBoostActive = true;
-
+        _speed *= _speedMultiplier;
         StartCoroutine(SpeedBoostPowerDownRoutine());
     }
 
@@ -121,5 +115,6 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         _isSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
     }
 }
