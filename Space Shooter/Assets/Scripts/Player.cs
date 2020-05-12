@@ -20,10 +20,11 @@ public class Player : MonoBehaviour
     private SpawnManager _spawnManager;
     
     private bool _isTripleShotActive = false;
-    [SerializeField]
     private bool _isSpeedBoostActive = false;
-    [SerializeField]
     private bool _isShieldActive = false;
+
+    [SerializeField]
+    private GameObject _shield;
 
     void Start()
     {
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The Spawn manager is NULL.");
         }
+
+        _shield.SetActive(false);
     }
 
     void Update()
@@ -86,6 +89,7 @@ public class Player : MonoBehaviour
     {
         if(_isShieldActive == true)
         {
+            _shield.SetActive(false);
             _isShieldActive = false;
             return;
         }
@@ -129,5 +133,6 @@ public class Player : MonoBehaviour
     public void ShieldActive()
     {
         _isShieldActive = true;
+        _shield.SetActive(true);  
     }
 }
