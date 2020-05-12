@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     private bool _isShieldActive = false;
 
     [SerializeField]
-    private GameObject _shield;
+    private GameObject _shieldVisualizer;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             Debug.LogError("The Spawn manager is NULL.");
         }
 
-        _shield.SetActive(false);
+        _shieldVisualizer.SetActive(false);
     }
 
     void Update()
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     {
         if(_isShieldActive == true)
         {
-            _shield.SetActive(false);
+            _shieldVisualizer.SetActive(false);
             _isShieldActive = false;
             return;
         }
@@ -133,6 +133,6 @@ public class Player : MonoBehaviour
     public void ShieldActive()
     {
         _isShieldActive = true;
-        _shield.SetActive(true);  
+        _shieldVisualizer.SetActive(true);  
     }
 }
