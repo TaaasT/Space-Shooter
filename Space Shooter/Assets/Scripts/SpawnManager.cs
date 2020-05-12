@@ -21,12 +21,6 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnPowerupRoutine());
     }
 
-    
-    void Update()
-    {
-    
-    }
-
     IEnumerator SpawnEnemyRoutine()
     {
         while(_stopSpawning == false)

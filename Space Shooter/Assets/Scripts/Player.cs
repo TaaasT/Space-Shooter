@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     private bool _isTripleShotActive = false;
     [SerializeField]
     private bool _isSpeedBoostActive = false;
+    [SerializeField]
+    private bool _isShieldActive = false;
+
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -34,7 +37,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    
     void Update()
     {
         CalculateMovement();
@@ -82,6 +84,12 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        if(_isShieldActive == true)
+        {
+            _isShieldActive = false;
+            return;
+        }
+
         _lives --;
 
         if(_lives < 1)
@@ -116,5 +124,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5);
         _isSpeedBoostActive = false;
         _speed /= _speedMultiplier;
+    }
+
+    public void ShieldActive()
+    {
+        _isShieldActive = true;
     }
 }
