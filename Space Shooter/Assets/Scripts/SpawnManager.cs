@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
                 _firstSpawn = true;
             }
             var PowerupSpawn = new Vector3(Random.Range(-8f, 8f), 7f, 0f);
-            int randomPowerUp = Random.Range(0, 2);
+            int randomPowerUp = Random.Range(0, 3);
             Instantiate(powerups[randomPowerUp], PowerupSpawn, Quaternion.identity);
 
             yield return new WaitForSeconds(Random.Range(3, 8));
