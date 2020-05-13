@@ -37,7 +37,9 @@ public class Player : MonoBehaviour
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
-        if(_spawnManager == null)
+        _shieldVisualizer.SetActive(false);
+
+        if (_spawnManager == null)
         {
             Debug.LogError("The Spawn manager is NULL.");
         }
@@ -46,8 +48,6 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The UI Manager is NULL");
         }
-
-        _shieldVisualizer.SetActive(false);
     }
 
     void Update()
