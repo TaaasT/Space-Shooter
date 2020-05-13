@@ -13,12 +13,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Sprite[] _liveSprites;
     [SerializeField]
-    private GameObject _gameOverScreen;
+    private Text _gameOverText;
    
     void Start()
     {
         _scoreText.text = "Score: " + 0;
-        _gameOverScreen.SetActive(false);
+        _gameOverText.gameObject.SetActive(false);
     }
 
     public void UpdateScore(int playerScore)
@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void GameOverScreen()
     {
-        _gameOverScreen.SetActive(true);
+        _gameOverText.gameObject.SetActive(true);
     }
 
 }
