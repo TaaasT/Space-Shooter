@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 418
     width: 1069
     height: 529
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 140
+  controlID: 36
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 139
+  controlID: 118
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 121
+  controlID: 119
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -13532
+  m_LastSelectedObjectID: -9412
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -473,7 +473,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 19
+  m_LastVerticalScrollValue: 0
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -512,8 +512,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/2D Galaxy Assets/Game/Sprites/UI/Lives
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders:
@@ -526,7 +525,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 90330000
     m_LastClickedID: 13200
-    m_ExpandedIDs: 00000000a2340000a4340000a6340000a8340000aa340000ac340000ae340000b0340000b2340000b4340000
+    m_ExpandedIDs: 00000000e2340000e4340000e6340000e8340000ea340000ec340000ee340000f0340000f2340000f4340000f6340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -551,10 +550,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 188}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000a2340000a4340000a6340000a8340000aa340000ac340000ae340000b0340000b2340000fa34000012350000
+    m_ExpandedIDs: ffffffff00000000e2340000e4340000e6340000e8340000ec340000ee340000f0340000f2340000f4340000f6340000d6440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -738,9 +737,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 245.86877, y: 376.2886, z: -64.5625}
+    m_Target: {x: 344.10196, y: 236.08891, z: -18.563095}
     speed: 2
-    m_Value: {x: 245.86877, y: 376.2886, z: -64.5625}
+    m_Value: {x: 344.10196, y: 236.08891, z: -18.563095}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -790,9 +789,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 183.21335
+    m_Target: 267.1362
     speed: 2
-    m_Value: 183.21335
+    m_Value: 255.63274
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -846,23 +845,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6f9ffff
-      m_LastClickedID: -1594
-      m_ExpandedIDs: c6f9ffff70fbffff88330000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3cdbffff6adfffffd4dfffff70fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Button
+        m_OriginalName: Button
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -9412
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
