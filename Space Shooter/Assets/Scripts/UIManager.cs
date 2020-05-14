@@ -45,10 +45,10 @@ public class UIManager : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(0.5f);
             _gameOverText.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
             _gameOverText.gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }
