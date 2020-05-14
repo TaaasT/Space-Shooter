@@ -38,7 +38,17 @@ public class UIManager : MonoBehaviour
 
     public void GameOverScreen()
     {
-        _gameOverText.gameObject.SetActive(true);
+        StartCoroutine(BlinkingText());
     }
 
+    IEnumerator BlinkingText()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            _gameOverText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _gameOverText.gameObject.SetActive(false);
+        }
+    }
 }
