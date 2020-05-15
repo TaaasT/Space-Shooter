@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     private Player _player;
     private Animator _anim;
+    private BoxCollider2D _enemyCollider;
 
     void Start()
     {
@@ -18,7 +20,15 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError("Player is NULL!");
         }
+
         _anim = GetComponent<Animator>();
+
+        if(_anim == null)
+        {
+            Debug.LogError("Animator is NULL");
+        }
+
+        _enemyCollider = GetComponent<BoxCollider2D>();
     }
 
     
@@ -42,9 +52,13 @@ public class Enemy : MonoBehaviour
             {
                 player.Damage();
             }
+            
             _anim.SetTrigger("OnEnemyDeath");
-            Destroy(this.gameObject);
+            _speed = 0;
+            Destroy(this.gameObject, 2.8f);
+            _enemyCollider.enabled = false;
         }
+
         else if(other.gameObject.tag == "Laser")
         {
             Destroy(other.gameObject);
@@ -53,8 +67,11 @@ public class Enemy : MonoBehaviour
             {
                 _player.AddScore(10);
             }
-            _anim.SetTrigger("OnEnemyDeath");
-            Destroy(this.gameObject);
+
+           _anim.SetTrigger("OnEnemyDeath");
+           _speed = 0;
+           Destroy(this.gameObject, 2.8f);
+            _enemyCollider.enabled = false;
         }
     }
 
