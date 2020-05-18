@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
 
     private UIManager _uiManager;
 
+    [SerializeField]
+    private GameObject _leftEngine;
+    [SerializeField]
+    private GameObject _rightEngine;
+
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
@@ -38,6 +43,8 @@ public class Player : MonoBehaviour
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         _shieldVisualizer.SetActive(false);
+        _leftEngine.SetActive(false);
+        _rightEngine.SetActive(false);
 
         if (_spawnManager == null)
         {
@@ -48,6 +55,7 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The UI Manager is NULL");
         }
+
     }
 
     void Update()
@@ -105,6 +113,15 @@ public class Player : MonoBehaviour
         }
 
         _lives --;
+
+        if(_lives == 2)
+        {
+            _leftEngine.SetActive(true);
+        }
+        else if(_lives == 1)
+        {
+            _rightEngine.SetActive(true);
+        }
 
         _uiManager.UpdateLives(_lives);
 
