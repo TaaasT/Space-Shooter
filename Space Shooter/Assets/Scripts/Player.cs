@@ -32,9 +32,7 @@ public class Player : MonoBehaviour
     private UIManager _uiManager;
 
     [SerializeField]
-    private GameObject _leftEngine;
-    [SerializeField]
-    private GameObject _rightEngine;
+    private GameObject _leftEngine, _rightEngine;
 
     void Start()
     {
