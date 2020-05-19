@@ -1670,17 +1670,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9831e2a73e84d114488da39658bd4a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3.5
+  _speed: 5
   _laserPrefab: {fileID: 1497219426357895301, guid: 05a36b9eaa1ade24b8c53fdd6433db01,
     type: 3}
   _tripleShotPrefab: {fileID: 5281909356765623454, guid: 92f8e649248204847b0601376f7a1cab,
     type: 3}
   _fireRate: 0.15
   _lives: 3
-  _shieldVisualizer: {fileID: 230643180}
+  _shieldVisualizer: {fileID: 1452755426011232607, guid: 59c3e0bd4ba84794489e7cfd036c2d2e,
+    type: 3}
   _score: 0
   _leftEngine: {fileID: 1039263970}
   _rightEngine: {fileID: 131925371}
+  _laserAudio: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
 --- !u!212 &1983236238
 SpriteRenderer:
   m_ObjectHideFlags: 0
