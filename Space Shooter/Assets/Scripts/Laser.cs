@@ -41,7 +41,7 @@ public class Laser : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
-        if (transform.position.y > -8f)
+        if (transform.position.y < -8f)
         {
             if (transform.parent != null)
             {
@@ -54,6 +54,20 @@ public class Laser : MonoBehaviour
     public void AssignEnemyLaser()
     {
         _isEnemyLaser = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player" && _isEnemyLaser == true)
+        {
+            Player player = other.GetComponent<Player>();
+
+            if(player != null)
+            {
+                player.Damage();
+            }
+        }
+
     }
 
 }
