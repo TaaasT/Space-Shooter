@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private bool _isGameOver;
-
+    public bool isCoopMode = false;
 
     private void Update()
     {

@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     private int _score;
 
     private UIManager _uiManager;
+    private GameManager _gameManager;
 
     [SerializeField]
     private GameObject _leftEngine, _rightEngine;
@@ -39,14 +40,19 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         _audioSource = GetComponent<AudioSource>();
 
         _shieldVisualizer.SetActive(false);
         _leftEngine.SetActive(false);
         _rightEngine.SetActive(false);
+
+        if (_gameManager.isCoopMode == false)
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
 
         if (_spawnManager == null)
         {
