@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip _laserSoundClip;
     private AudioSource _audioSource;
+    
 
     void Start()
     {
@@ -83,13 +84,20 @@ public class Player : MonoBehaviour
         if(isPlayerOne == true)
         {
             CalculateMovement();
-            FireLaser();
+            if ((Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) && isPlayerOne == true)
+            {
+                FireLaser();
+            }
+                
         }
         
         if(isPlayerTwo == true)
         {
             PlayerTwo();
-            ShootPlayerTwo();
+            if ((Input.GetKeyDown(KeyCode.Return) && Time.time > _canFire) && isPlayerTwo == true)
+            {
+                FireLaser();
+            }
         }
 
     }
@@ -117,8 +125,6 @@ public class Player : MonoBehaviour
 
     void PlayerTwo()
     {
-
-
         if(Input.GetKey(KeyCode.Keypad8))
         {
             transform.Translate(Vector3.up * _speed * Time.deltaTime);
@@ -153,7 +159,7 @@ public class Player : MonoBehaviour
 
     void FireLaser()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) && isPlayerOne == true)
+        
         {
             _canFire = Time.time + _fireRate;
 
@@ -176,30 +182,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ShootPlayerTwo()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
-        {
-            _canFire = Time.time + _fireRate;
 
-            if (_isTripleShotActive == true)
-            {
-
-                GameObject tripleShot = Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
-                foreach (Laser laser in tripleShot.GetComponentsInChildren<Laser>())
-                {
-                    laser.SetPlayer(this);
-                }
-            }
-            else
-            {
-                Instantiate(_laserPrefab, transform.position + offset, Quaternion.identity).SetPlayer(this);
-            }
-
-            _audioSource.Play();
-
-        }
-    }
         public void Damage()
     {
         if(_isShieldActive == true)
