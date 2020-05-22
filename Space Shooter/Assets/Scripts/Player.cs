@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
 
     private UIManager _uiManager;
     private GameManager _gameManager;
+    private PlayerAnimation _playerAnimation;
 
     [SerializeField]
     private GameObject _leftEngine, _rightEngine;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _playerAnimation = GetComponent<PlayerAnimation>();
         _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -81,7 +83,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if(isPlayerOne == true)
+        if(isPlayerOne)
         {
             CalculateMovement();
             if ((Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) && isPlayerOne == true)
@@ -91,7 +93,7 @@ public class Player : MonoBehaviour
                 
         }
         
-        if(isPlayerTwo == true)
+        if(isPlayerTwo)
         {
             PlayerTwo();
             if ((Input.GetKeyDown(KeyCode.Return) && Time.time > _canFire) && isPlayerTwo == true)
@@ -106,6 +108,8 @@ public class Player : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
+        _playerAnimation.SetHorizontalAnimation(horizontalInput);
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
 
@@ -125,6 +129,8 @@ public class Player : MonoBehaviour
 
     void PlayerTwo()
     {
+        float inputAxis = 0;
+
         if(Input.GetKey(KeyCode.Keypad8))
         {
             transform.Translate(Vector3.up * _speed * Time.deltaTime);
@@ -133,6 +139,7 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.Keypad6))
         {
             transform.Translate(Vector3.right * _speed * Time.deltaTime);
+            inputAxis = 1;
         }
 
         if (Input.GetKey(KeyCode.Keypad2))
@@ -143,7 +150,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Keypad4))
         {
             transform.Translate(Vector3.left * _speed * Time.deltaTime);
+            inputAxis = -1;
         }
+
+        _playerAnimation.SetHorizontalAnimation(inputAxis);
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 3.8f), 0);
 

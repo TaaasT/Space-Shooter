@@ -672,8 +672,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.0000042915, y: 97}
-  m_SizeDelta: {x: 468.01355, y: 32.690063}
+  m_AnchoredPosition: {x: 0.0000066757, y: 100}
+  m_SizeDelta: {x: 534.46173, y: 32.690063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568603140
 MonoBehaviour:
@@ -707,7 +707,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press the "R" key to restart the level!
+  m_Text: Press the "R" key to go back to Main Menu
 --- !u!222 &568603141
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1522,6 +1522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isPlayerOne
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584655795997323379, guid: 6eb4a08430da045469e564168cc665c8,
+        type: 3}
+      propertyPath: moveLeft
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb4a08430da045469e564168cc665c8, type: 3}
