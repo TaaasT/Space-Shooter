@@ -284,6 +284,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_2
       objectReference: {fileID: 0}
+    - target: {fileID: 8584655795997323379, guid: 6eb4a08430da045469e564168cc665c8,
+        type: 3}
+      propertyPath: isPlayerTwo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584655795997323379, guid: 6eb4a08430da045469e564168cc665c8,
+        type: 3}
+      propertyPath: isPlayerOne
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb4a08430da045469e564168cc665c8, type: 3}
 --- !u!1 &187420307
@@ -1502,6 +1512,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584655795997323379, guid: 6eb4a08430da045469e564168cc665c8,
+        type: 3}
+      propertyPath: isPlayerOne
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb4a08430da045469e564168cc665c8, type: 3}

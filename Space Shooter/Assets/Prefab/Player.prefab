@@ -107,6 +107,8 @@ MonoBehaviour:
     type: 3}
   _fireRate: 0.15
   _lives: 3
+  isPlayerOne: 1
+  isPlayerTwo: 0
   _shieldVisualizer: {fileID: 1452755426011232607, guid: 59c3e0bd4ba84794489e7cfd036c2d2e,
     type: 3}
   _score: 0

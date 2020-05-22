@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private bool _isTripleShotActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isShieldActive = false;
+    public bool isPlayerOne = false;
+    public bool isPlayerTwo = false;
 
     [SerializeField]
     private GameObject _shieldVisualizer;
@@ -77,8 +79,19 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        CalculateMovement();
-        FireLaser();
+
+        if(isPlayerOne == true)
+        {
+            CalculateMovement();
+            FireLaser();
+        }
+        
+        if(isPlayerTwo == true)
+        {
+            PlayerTwo();
+            ShootPlayerTwo();
+        }
+
     }
 
     void CalculateMovement()
@@ -102,9 +115,45 @@ public class Player : MonoBehaviour
         }
     }
 
+    void PlayerTwo()
+    {
+
+
+        if(Input.GetKey(KeyCode.Keypad8))
+        {
+            transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        }
+
+        if(Input.GetKey(KeyCode.Keypad6))
+        {
+            transform.Translate(Vector3.right * _speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.Keypad2))
+        {
+            transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.Keypad4))
+        {
+            transform.Translate(Vector3.left * _speed * Time.deltaTime);
+        }
+
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 3.8f), 0);
+
+        if (transform.position.x > 11.3f)
+        {
+            transform.position = new Vector3(-11.3f, transform.position.y, 0);
+        }
+        else if (transform.position.x < -11.3f)
+        {
+            transform.position = new Vector3(11.3f, transform.position.y, 0);
+        }
+    }
+
     void FireLaser()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        if ((Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire) && isPlayerOne == true)
         {
             _canFire = Time.time + _fireRate;
 
@@ -127,7 +176,31 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Damage()
+    void ShootPlayerTwo()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        {
+            _canFire = Time.time + _fireRate;
+
+            if (_isTripleShotActive == true)
+            {
+
+                GameObject tripleShot = Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+                foreach (Laser laser in tripleShot.GetComponentsInChildren<Laser>())
+                {
+                    laser.SetPlayer(this);
+                }
+            }
+            else
+            {
+                Instantiate(_laserPrefab, transform.position + offset, Quaternion.identity).SetPlayer(this);
+            }
+
+            _audioSource.Play();
+
+        }
+    }
+        public void Damage()
     {
         if(_isShieldActive == true)
         {
