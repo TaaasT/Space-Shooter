@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private float _speed = 5;
     private float _speedMultiplier = 2;
     [SerializeField]
-    private GameObject _laserPrefab;
+    private Laser _laserPrefab;
     [SerializeField]
     private GameObject _tripleShotPrefab;
     [SerializeField]
@@ -110,11 +110,16 @@ public class Player : MonoBehaviour
 
             if (_isTripleShotActive == true)
             {
-                Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+
+                GameObject tripleShot = Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+                foreach (Laser laser in tripleShot.GetComponentsInChildren<Laser>()) 
+                {
+                    laser.SetPlayer(this);
+                }
             }
             else
             {
-                Instantiate(_laserPrefab, transform.position + offset, Quaternion.identity);
+                Instantiate(_laserPrefab, transform.position + offset, Quaternion.identity).SetPlayer(this);
             }
 
             _audioSource.Play();

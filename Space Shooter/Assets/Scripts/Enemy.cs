@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
 
-    private Player _player;
+    private Player[] _players;
     private Animator _anim;
     private BoxCollider2D _enemyCollider;
     private AudioSource _audioSource;
@@ -19,12 +19,16 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        Player[] activePlayers = GameObject.FindObjectsOfType<Player>();
+        _players = activePlayers;
         _audioSource = GetComponent<AudioSource>();
-
-        if(_player == null)
+        
+        for(int i = 0; i < _players.Length; i++)
         {
-            Debug.LogError("Player is NULL!");
+            if (_players[i] == null)
+            {
+                Debug.LogError("Player is NULL!");
+            }
         }
 
         _anim = GetComponent<Animator>();
@@ -89,11 +93,8 @@ public class Enemy : MonoBehaviour
         else if(other.gameObject.tag == "Laser")
         {
             Destroy(other.gameObject);
-            
-            if(_player != null)
-            {
-                _player.AddScore(10);
-            }
+
+            other.gameObject.GetComponent<Laser>().player.AddScore(10);
 
            _anim.SetTrigger("OnEnemyDeath");
            _speed = 0;

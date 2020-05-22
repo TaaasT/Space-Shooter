@@ -9,7 +9,9 @@ public class Laser : MonoBehaviour
     private float _speed = 8f;
     private bool _isEnemyLaser = false;
 
-   
+    private Player _player;
+    public Player player { get => _player; }
+
     void Update()
     {
         if(_isEnemyLaser == false)
@@ -71,6 +73,11 @@ public class Laser : MonoBehaviour
 
         }
 
+    }
+
+    public void SetPlayer(Player player)
+    {
+        _player = player;
     }
 
 }
