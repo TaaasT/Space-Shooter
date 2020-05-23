@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        _pauseMenuPanel.SetActive(false);
 
         if(Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
@@ -37,6 +36,12 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+    }
+
+   public void ResumeGame()
+    {
+        _pauseMenuPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
 }
