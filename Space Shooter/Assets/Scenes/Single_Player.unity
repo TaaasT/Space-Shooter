@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGameOver: 0
   isCoopMode: 0
+  _pauseMenuPanel: {fileID: 543465527}
 --- !u!1 &285764656
 GameObject:
   m_ObjectHideFlags: 0
