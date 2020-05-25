@@ -217,6 +217,7 @@ public class Player : MonoBehaviour
 
         if(_lives < 1)
         {
+            _uiManager.CheckHighScore(_score);
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
