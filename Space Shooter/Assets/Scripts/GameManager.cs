@@ -11,10 +11,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _pauseMenuPanel;
+    private Animator _pauseAnimator = null;
+
+    private void Start()
+    {
+        _pauseAnimator = GameObject.Find("Pause_Menu").GetComponent<Animator>();
+        _pauseAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+    }
 
     private void Update()
     {
-
         if(Input.GetKeyDown(KeyCode.R) && _isGameOver == true)
         {
             SceneManager.LoadScene(0); // Main Menu
@@ -29,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             _pauseMenuPanel.SetActive(true);
+            _pauseAnimator.SetBool("isPaused", true);
         }
 
     }
