@@ -25,8 +25,9 @@ public class UIManager : MonoBehaviour
    
     void Start()
     {
+        _bestScore = PlayerPrefs.GetInt("HighScore", 0);
         _scoreText.text = "Score: " + 0;
-        _highScore.text = "Best: " + ScoreBoard.Instance.highScore;
+        _highScore.text = "Best: " + _bestScore;
         _gameOverText.gameObject.SetActive(false);
         _restartLevelText.gameObject.SetActive(false);
 
@@ -50,6 +51,7 @@ public class UIManager : MonoBehaviour
         if(_bestScore < playerScore)
         {
             _bestScore = playerScore;
+            PlayerPrefs.SetInt("HighScore", _bestScore);
             ScoreBoard.Instance.highScore = _bestScore;
             _highScore.text = "Best: " + _bestScore;
         }
